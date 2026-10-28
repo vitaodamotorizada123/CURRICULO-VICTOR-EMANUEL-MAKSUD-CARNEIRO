@@ -1,673 +1,210 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor Emanuel Maksud Carneiro | Currículo Interativo</title>
-    <link rel="icon" type="image/jpeg" href="minhafoto.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <style>
-        /*CSS*/
-        :root {
-           
-            --color-bg-primary: #FFFFFF; /* Fundo branco */
-            --color-text-primary: #333333; /* Texto principal cinza escuro */
-            --color-accent: #0056b3;     /* Azul profissional para destaque */
-            --color-light-gray: #f2f2f2; /* Cinza claro para fundos secundários */
-            --color-border: #e0e0e0;     /* Cor de borda */
-            --color-shadow: rgba(0, 0, 0, 0.08); /* Sombra suave para cards */
-        }
-
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif; /* Fonte para o corpo do texto */
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--color-text-primary);
-            background-color: var(--color-bg-primary);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Roboto', sans-serif; /* Fonte para títulos */
-            color: var(--color-accent);
-            margin-bottom: 15px;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 2px solid var(--color-accent);
-            padding-bottom: 5px;
-            margin-bottom: 25px;
-        }
-
-        h3 {
-            font-size: 1.3em;
-            margin-bottom: 8px;
-        }
-
-        a {
-            color: var(--color-accent);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #003d82; /* Tonalidade mais escura no hover */
-            text-decoration: underline;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /*Header e Navegação*/
-        .header {
-            background-color: var(--color-bg-primary);
-            text-align: center;
-            padding: 40px 20px;
-            border-bottom: 1px solid var(--color-border);
-            position: relative;
-        }
-
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--color-accent);
-            margin-bottom: 20px;
-        }
-
-        .header h1 {
-            font-size: 2.8em;
-            margin: 10px 0 5px 0;
-            color: var(--color-text-primary); /* Nome em cor principal */
-        }
-
-        .typing-effect {
-            font-size: 1.5em;
-            color: var(--color-accent);
-            height: 1.5em; /* Garante que o container não encolha */
-            overflow: hidden;
-            white-space: nowrap;
-            display: inline-block;
-            vertical-align: middle;
-            border-right: 2px solid transparent; /* Cursor */
-            animation: blink-caret .75s step-end infinite;
-        }
-
-        /* Animação do cursor de digitação */
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--color-accent); }
-        }
-
-        .main-nav {
-            background-color: var(--color-light-gray);
-            padding: 10px 0;
-            text-align: center;
-            border-bottom: 1px solid var(--color-border);
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .main-nav ul {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap; /* Permite quebrar linha em mobile */
-            gap: 15px;
-        }
-
-        .main-nav a {
-            font-family: 'Roboto', sans-serif;
-            font-weight: bold;
-            color: var(--color-text-primary);
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .main-nav a:hover {
-            background-color: var(--color-accent);
-            color: var(--color-bg-primary);
-            text-decoration: none;
-        }
-
-        /* 
-        Layout Principal  */
-        .main-content {
-            display: flex;
-            flex-direction: column; /* Padrão mobile: coluna única */
-            gap: 30px;
-        }
-
-        .left-column, .right-column {
-            flex: 1; /* Ocupa o espaço disponível em coluna única */
-        }
-
-        /* Media Query para Desktop (layout de duas colunas) */
-        @media (min-width: 768px) {
-            .main-content {
-                flex-direction: row; /* Desktop: duas colunas */
-            }
-
-            .left-column {
-                flex: 1; /* Coluna da esquerda menor */
-                max-width: 30%; /* Ex: 30% da largura total */
-            }
-
-            .right-column {
-                flex: 2; /* Coluna da direita maior */
-            }
-
-            .header {
-                padding: 60px 20px;
-            }
-        }
-
-        /* Estilos das Seções e Cards*/
-        .section {
-            padding: 20px;
-            background-color: var(--color-bg-primary);
-            border-radius: 8px;
-            box-shadow: 0 4px 10px var(--color-shadow);
-            margin-bottom: 30px; /* Espaçamento entre as seções */
-        }
-        
-        /* Contato e Endereço */
-        #contatos ul, #endereco p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-        #contatos ul li {
-            margin-bottom: 10px;
-        }
-        #contatos ul li i {
-            width: 25px; /* Alinhar ícones */
-            text-align: center;
-            color: var(--color-accent);
-            margin-right: 8px;
-        }
-
-        /* Objetivo */
-        #objetivos p {
-            text-align: justify;
-            font-size: 1.1em;
-        }
-
-        /* Formação, Cursos/Experiências */
-        .item {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed var(--color-border);
-        }
-        .item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .item-meta {
-            color: var(--color-secondary); /* Cinza secundário para meta info */
-            font-size: 0.95em;
-            margin-bottom: 10px;
-            display: block; /* Para garantir nova linha */
-        }
-        .item ul {
-            padding-left: 20px;
-            list-style: disc;
-        }
-        .item ul li {
-            margin-bottom: 5px;
-        }
-        
-        /* Seções Retráteis (Collapsible) */
-        .collapsible-header {
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--color-light-gray);
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            transition: background-color 0.3s ease;
-        }
-        .collapsible-header:hover {
-            background-color: #e9e9e9;
-        }
-        .collapsible-header h3 {
-            margin: 0;
-            color: var(--color-text-primary);
-            font-size: 1.1em;
-        }
-        .collapsible-header .icon {
-            transition: transform 0.3s ease;
-        }
-        .collapsible-header.active .icon {
-            transform: rotate(180deg);
-        }
-        .collapsible-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            padding: 0 15px; /* Espaçamento quando aberto */
-        }
-        .collapsible-content p {
-            margin-bottom: 10px;
-            text-align: justify;
-        }
-        .collapsible-content.open {
-            max-height: 500px; /* Valor arbitrário grande para mostrar conteúdo */
-            padding-top: 15px;
-        }
-
-        /* Habilidades e Linguagens */
-        .skills-list, .languages-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .skills-list li, .languages-list li {
-            background-color: var(--color-light-gray);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.95em;
-            color: var(--color-text-primary);
-            display: inline-flex; /* Para alinhar ícone e texto */
-            align-items: center;
-        }
-        .languages-list li i {
-            margin-right: 8px;
-            color: var(--color-accent);
-        }
-        
-        /* Projetos Notáveis */
-        .project-filters {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        .filter-btn {
-            background: none;
-            border: 1px solid var(--color-border);
-            color: var(--color-text-primary);
-            padding: 10px 20px;
-            border-radius: 25px;
-            margin: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Roboto', sans-serif;
-            font-weight: bold;
-        }
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--color-accent);
-            color: var(--color-bg-primary);
-            border-color: var(--color-accent);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas flexíveis */
-            gap: 20px;
-        }
-        .project-card {
-            background-color: var(--color-bg-primary);
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px var(--color-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex; /* Para esconder/mostrar com mais controle */
-            flex-direction: column;
-            justify-content: space-between; /* Links no final */
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px var(--color-shadow);
-        }
-        .project-card h3 {
-            margin-top: 0;
-            color: var(--color-accent);
-            font-size: 1.2em;
-        }
-        .project-card p {
-            margin-bottom: 15px;
-            flex-grow: 1; /* Ocupa espaço para alinhar links */
-        }
-        .project-links a {
-            margin-right: 15px;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-        }
-        .project-links a i {
-            margin-right: 5px;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victor Maksud — Software Developer · AI &amp; Automation</title>
+<meta name="description" content="Résumé of Victor Emanuel Maksud Carneiro: Information Systems graduate (Dec 2026), co-founder of DIMAK Soluções, software developer focused on AI and automation, moving to the Gold Coast, QLD.">
+<meta name="theme-color" content="#0B1020">
+<link rel="canonical" href="https://curriculo-victor-emanuel-maksud-carneiro.onrender.com/">
+<link rel="alternate" hreflang="en" href="https://curriculo-victor-emanuel-maksud-carneiro.onrender.com/">
+<link rel="alternate" hreflang="pt-BR" href="https://curriculo-victor-emanuel-maksud-carneiro.onrender.com/pt/">
+<link rel="alternate" hreflang="x-default" href="https://curriculo-victor-emanuel-maksud-carneiro.onrender.com/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Victor Maksud — Software Developer · AI &amp; Automation">
+<meta property="og:description" content="Résumé of Victor Emanuel Maksud Carneiro: Information Systems graduate (Dec 2026), co-founder of DIMAK Soluções, software developer focused on AI and automation, moving to the Gold Coast, QLD.">
+<meta property="og:url" content="https://curriculo-victor-emanuel-maksud-carneiro.onrender.com/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hero" id="top">
+<div class="wrap">
+<nav class="nav" aria-label="Primary">
+<div class="nav-top">
+<a class="brand" href="#top">Victor Maksud</a>
+<div class="nav-actions">
+<div class="lang" role="group" aria-label="Language">
+<a href="./" hreflang="en" lang="en" aria-current="page">EN</a>
+<a href="pt/" hreflang="pt-BR" lang="pt-BR">PT</a>
+</div>
+<a class="btn btn-light btn-sm" href="Victor-Maksud-Carneiro-Resume.pdf" aria-label="Download résumé as PDF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span>PDF</span></a>
+</div>
+</div>
+<div class="nav-links">
+<a href="#profile">Profile</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+<div class="hero-body">
+<div class="hero-main">
+<p class="eyebrow">Software Developer · AI &amp; Automation</p>
+<h1>Victor<br>Maksud</h1>
+<p class="lead">Information Systems graduate (Dec 2026) and co-founder of DIMAK, a custom-software studio. I design, build and ship web systems end to end — and help people put AI to work.</p>
+<div class="chips"><span class="chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8EA8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Gold Coast, QLD</span></span><span class="chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8EA8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8 17h8"/></svg><span>Student visa (subclass 500)</span></span><span class="chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8EA8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg><span>Graduating Dec 2026</span></span></div>
+<div class="cta">
+<a class="btn btn-primary" href="Victor-Maksud-Carneiro-Resume.pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span>View résumé (PDF)</span></a>
+<a class="btn btn-ghost" href="mailto:victoremc122@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email me</span></a>
+<div class="text-links">
+<a class="text-link" href="https://www.linkedin.com/in/victor-emanuel-5b0732354" target="_blank" rel="noopener">LinkedIn<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a class="text-link" href="https://github.com/vitaodamotorizada123" target="_blank" rel="noopener">GitHub<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+</div>
+</div>
+</div>
+<aside class="glance" aria-label="At a glance">
+<div class="glance-head"><span class="eyebrow">At a glance</span><span class="coords"><span class="dot" style="background:#FF8A3D"></span>28.0° S · 153.4° E</span></div>
+<div class="glance-route"><span>Belo Horizonte</span><svg width="56" height="14" viewBox="0 0 56 14" fill="none" aria-hidden="true"><path d="M2 12 C 18 0, 38 0, 54 12" stroke="#8EA8FF" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="54" cy="12" r="2" fill="#FF8A3D"/></svg><strong>Gold Coast</strong></div>
+<dl><div><dt>Now</dt><dd>Co-founder &amp; software developer, DIMAK Soluções</dd></div><div><dt>Shipped</dt><dd>WhatsApp chatbot platform and a booking system in production</dd></div><div><dt>Teaching</dt><dd>AI mentoring sessions</dd></div><div><dt>Courses</dt><dd>Cisco Networking Academy · Oracle Academy</dd></div></dl>
+</aside>
+</div>
+</div>
+</header>
 
-    <div class="container">
-        
-        <header class="header">
-            <img src="minhafoto.jpg" alt="Foto de Perfil" class="profile-pic">
-            <h1>Victor Emanuel Maksud Carneiro</h1>
-            <p class="typing-effect" data-words='["Curriculo interativo", "Cursando Sistemas de Informação", "Preciso de um estagio"]'></p>
-        </header>
+<main id="main">
 
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#contatos">Contatos</a></li>
-                <li><a href="#objetivos">Objetivos</a></li>
-                <li><a href="#formacao">Formação</a></li>
-                <li><a href="#experiencia">Experiência</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-            </ul>
-        </nav>
-
-        <main class="main-content">
-            
-            <aside class="left-column">
-                
-                <section id="contatos" class="section">
-                    <h2>Contatos</h2>
-                    <ul>
-                        <li><i class="fas fa-phone-alt"></i> +55 (31)98788-2711 </li>
-                        <li><i class="fas fa-envelope"></i> <a href="https://www.google.com/">victoremc122@gmail.com</a></li>
-                        <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/victor-emanuel-5b0732354/" target="_blank">LinkedIn</a></li>
-                        <li><i class="fab fa-github"></i> <a href="https://github.com/vitaodamotorizada123" target="_blank">GitHub</a></li>
-                        <li><i class="fab fa-envelope"></i> <a href="https://docs.google.com/document/d/10J6e7aUYYi1P6J25_pssKPJoAhC-hEeb/edit?usp=sharing&ouid=106378299997025591332&rtpof=true&sd=true" target="_blank">PDF do curriculo</a></li>
-                    </ul>
-                </section>
-
-                <section id="endereco" class="section">
-                    <h2>Endereço</h2>
-                    <p><i class="fas fa-map-marker-alt"></i> Rua San Marino, 588 – Nova Lima 
-Rua Cônsul Robert Levy, 1025 – Belo Horizonte
-</p>
-                </section>
-
-                <section id="habilidades" class="section">
-                    <h2>Habilidades e Competências</h2>
-                    <ul class="skills-list">
-                        <li>Lógica</li>
-                        <li>Prompt Writing</li>
-                        <li>UX/UI</li>
-                        <li>Comunicação visual</li>
-                        <li>Web Design</li>
-                        <li>GitHub</li>
-                        <li>Clean Code (pouco)</li>
-                    </ul>
-                </section>
-                
-                <section id="linguagens" class="section">
-                    <h2>Linguagens de Programação</h2>
-                    <ul class="languages-list">
-                        <li><i class="fab fa-js-square"></i> Java, JavaScript, CSS, HTML</li>
-                        <li><i class="fab fa-python"></i> Python (pouco)</li>
-                        <li><i class="fab fa-java"></i> C#(pouco), Node.js(pouco)</li>
-                        <li><i class="fas fa-database"></i> VScode Intellij N8N (pouco) WireShark (pouco) Figma</li>
-                    </ul>
-                </section>
-
-            </aside>
-
-            <div class="right-column">
-                
-                <section id="objetivos" class="section">
-                    <h2>Objetivo na minha carreira profissional</h2>
-                    <p>
-                        Desenvolver soluções técnicas. Liderar projetos que unem inovação e tecnologia. Acredito que ambas devem caminhar lado a lado. Tenho como missão usar o que sei e o que ainda vou aprender para contribuir com os desenvolvimentos. Mais do que trabalhar com tecnologia, quero usá-la para resolver problemas reais, gerar transformação positiva e estar presente onde minha presença fizer diferença.
-
-                    </p>
-                </section>
-
-                <section id="formacao" class="section">
-                    <h2>Formação Acadêmica</h2>
-                    <div class="item">
-                        <h3>Cursando Sistemas de Informação</h3>
-                        <span class="item-meta">Uni-BH | 2023 - 2026</span>
-                        <div class="collapsible-container">
-                            <div class="collapsible-header">
-                                <h3>Detalhes da Formação <i class="fas fa-chevron-down icon"></i></h3>
-                            </div>
-                            <div class="collapsible-content">
-                                <p>Início do curso Sistemas de Informação 2023.1 (data de ingresso 01/01/2023) (Carga Horária Total
-                                    3140 horas) - Finalizaçao do curso prevista para (2026.2) (12/2026) Município Belo Horizonte UF - MG </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="experiencia" class="section">
-                    <h2>Cursos</h2>
-                    
-                    <div class="item">
-                        <div class="collapsible-container">
-                            <div class="collapsible-header">
-                                <h3>Formaçao <i class="fas fa-chevron-down icon"></i></h3>
-                            </div>
-                            <div class="collapsible-content">
-                                <span class="item-meta">UNIBH - 2025.2 - Presente</span>
-                                <ul>
-                                    <li>Colegio Loyola (1-9 ano)</li>
-                                    <li>Coleguium internacional (ensino médio completo)</li>
-                                    <li>Centro universitário UNIBH (Graduação em Sistemas de Informação - 6o Período).</li>
-                                    <li>Desenvolvimento de plataformas na faculdade</li>
-                                    <li>Otimização da performance operacional de empresas, 2024.1 na faculdade</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="item">
-                        <div class="collapsible-container">
-                            <div class="collapsible-header">
-                                <h3>Cursos que ja participei <i class="fas fa-chevron-down icon"></i></h3>
-                            </div>
-                            <div class="collapsible-content">
-                                <span class="item-meta">cursos</span>
-                                <p>-Curso Java (ORACLE)
-                                    -Curso Network Tracing (CISCO)
-                                    -Protótipo de miniatura de veículo autônomo com utilização de hardware NVIDIA Jetson Nano embarcado (UNIBH)
-                                    -Projetos e processos de T.I (UNIBH)
-                                    -Governança de T.I (UNIBH)
-                                    -Arquiteturas empresariais (UNIBH)
-                                    -Inovação, sustentabilidade e competitividade empresarial (UNIBH)
-                                    -Modelagem de software (UNIBH)
-                                    -Sistemas computacionais e segurança (UNIBH)
-                                    -Ambientes computacionais e conectividade (UNIBH)
-                                    -(Cultura Inglesa - Nível Intermediário)
-                                    -(Curso de inglês com professor particular)</p>
-                            </div>
-                        </div>
-                    </div>
-
-<!-- Seção de Projetos Notáveis -->
-<section id="projetos" class="section">
-    <h2>Projetos Notáveis</h2>
-
-    <!-- Filtros de projeto -->
-    <div class="project-filters">
-        <button class="filter-btn active" data-filter="all">
-            Todos os Projetos
-        </button>
-        <button class="filter-btn" data-filter="javascript">
-            JavaScript, HTML e CSS
-        </button>
-    </div>
-
-    <!-- Grid de Projetos -->
-    <div class="projects-grid">
-
-        <!-- Projeto 1 -->
-        <div class="project-card" data-categories="javascript">
-            <h3>Sistema de Convite com Pegadinha</h3>
-            <p>Uma aplicação web criativa desenvolvida para chamar a atenção de garotas de forma divertida e interativa com uma pegadinha.</p>
-            <div class="project-links">
-                <a href="https://convite-de-saida-com-pegadinha.onrender.com" target="_blank" aria-label="Ver o site funcionando">
-                    <i class="fab fa-github"></i> Ver o site funcionando
-                </a>
-            </div>
-        </div>
-
-        <!-- Projeto 2 -->
-        <div class="project-card" data-categories="javascript">
-            <h3>Sistema de Pesquisa de Parques e Praças</h3>
-            <p>Aplicação full-stack para localização de parques e espaços recreativos no Brasil, implementada com arquitetura moderna, segurança enterprise e otimizações de performance. Para testar essa aplicação por conta propria utilize o seguinte acesso: "carlos@test.com" senha: "senha123"</p>
-            <div class="project-links">
-                <a href="https://fitness-local-project.onrender.com/" target="_blank" aria-label="Ver o site funcionando">
-                    <i class="fab fa-github"></i> Ver o site funcionando
-                </a>
-            </div>
-        </div>
-
-    </div> <!-- /projects-grid -->
+<section class="section wrap" id="profile" aria-labelledby="profile-h">
+<div class="section-grid">
+<div class="section-label"><p class="num">01</p><h2 id="profile-h">Profile</h2></div>
+<div class="section-body">
+<p class="profile-lead">Final-year Information Systems student at UniBH (Brazil), graduating in December 2026, and co-founder of DIMAK Soluções — where I build custom software for businesses, from a reusable WhatsApp chatbot that plugs into any client system to a booking platform running in production.</p>
+<p class="profile-text">I combine full-stack development with practical AI: prompt engineering, LLM-assisted development and n8n automation. I have also mentored people on using AI in their day-to-day work. I&#x27;m relocating to the Gold Coast on a student visa and looking for roles where I can contribute from day one.</p>
+<div class="open-to"><span class="eyebrow">Open to</span><span class="pill-accent">Junior software developer</span><span class="pill-accent">Web developer</span><span class="pill-accent">IT support</span><span class="pill-accent">AI &amp; automation</span></div>
+<p class="availability"><span class="dot"></span><span>Student visa (subclass 500), valid to [MM/YYYY] · available up to 48 hours per fortnight during study periods and full-time in scheduled breaks · from [MONTH 2027]</span></p>
+</div>
+</div>
 </section>
 
-                    </div>
-                </section>
+<section class="section wrap" id="experience" aria-labelledby="experience-h">
+<div class="section-grid">
+<div class="section-label"><p class="num">02</p><h2 id="experience-h">Experience</h2></div>
+<div class="section-body jobs"><article class="job">
+<div class="row-between"><h3>Co-Founder &amp; Software Developer</h3><p class="dates">[START] – Present</p></div>
+<p class="org">DIMAK Soluções <span>· Belo Horizonte, Brazil</span></p>
+<p class="job-summary">Custom-software studio building tailored systems, chatbots and 3D websites for businesses of any size.</p>
+<ul><li>Built DIMAK Bot, a reusable WhatsApp chatbot (WhatsApp Cloud API) that connects to any client system — menu-and-button flows, human handover answered from the client&#x27;s own dashboard and a dedicated number per business.</li><li>Designed the admin side: one panel listing every active chatbot, messaging on a business&#x27;s behalf, and owners limited to their own bot.</li><li>Developed a barbershop booking platform now in production, with a barber dashboard and customer area; WhatsApp bookings recognise customers by phone number and sync with the dashboard.</li><li>Added email alerts so owners and staff know when a customer asks for a person, and opened the WhatsApp inbox to the whole team.</li><li>Deploy and maintain always-on services on Render under the studio&#x27;s own domain, using Git and GitHub for version control.</li><li>Produce the studio&#x27;s Instagram content (@dimaksolucoes), presenting custom software, chatbots and 3D websites.</li></ul>
+<div class="tags"><span class="tag">WhatsApp Cloud API</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Render</span><span class="tag">Git &amp; GitHub</span></div>
+</article><article class="job">
+<div class="row-between"><h3>AI Mentor</h3><p class="dates">[YEAR] – Present</p></div>
+<p class="org">[Organisation / Independent] <span>· [City / Online]</span></p>
+<p class="job-summary">Mentoring on practical, everyday use of artificial intelligence.</p>
+<ul><li>Delivered AI mentoring sessions on prompt writing, AI-assisted workflows and automation for [audience — e.g. students, professionals, business owners].</li><li>[Add: number of sessions or mentees, and one concrete outcome.]</li></ul>
+<div class="tags"><span class="tag">Prompt engineering</span><span class="tag">LLM tools</span><span class="tag">n8n</span></div>
+</article></div>
+</div>
+</section>
 
-            </div>
+<section class="section wrap" id="projects" aria-labelledby="projects-h">
+<div class="section-grid">
+<div class="section-label"><p class="num">03</p><h2 id="projects-h">Projects</h2></div>
+<div class="section-body"><p class="intro">Selected work, from client systems running in production to university research.</p></div>
+<div class="section-full cards"><article class="card">
+<div class="card-top"><span class="status status-prod"><span class="dot"></span>In production</span><span class="card-num">01</span></div>
+<div><h3>DIMAK Bot</h3><p class="kind">WhatsApp chatbot platform</p></div>
+<p class="card-desc">A reusable chatbot that plugs into any business system and is customised per client. One demo number offers a menu of segments — barbershop, accounting and sales — and every lead is kept for follow-up.</p>
+<div class="tags"><span class="tag">WhatsApp Cloud API</span><span class="tag">Webhooks</span><span class="tag">Admin panel</span></div>
 
-        </main>
-    </div>
+</article><article class="card">
+<div class="card-top"><span class="status status-prod"><span class="dot"></span>In production</span><span class="card-num">02</span></div>
+<div><h3>Barbershop Booking System</h3><p class="kind">Full-stack web app</p></div>
+<p class="card-desc">Booking platform with a barber dashboard and a customer area, connected to DIMAK Bot so customers can book through WhatsApp as well as the web.</p>
+<div class="tags"><span class="tag">Dashboard</span><span class="tag">Scheduling</span><span class="tag">WhatsApp</span></div>
+<a class="card-link" href="https://app.dimaksolucoes.com.br" target="_blank" rel="noopener">Open app<span class="sr-only"> — Barbershop Booking System</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+</article><article class="card">
+<div class="card-top"><span class="status status-live"><span class="dot"></span>Live</span><span class="card-num">03</span></div>
+<div><h3>Parks &amp; Squares Finder</h3><p class="kind">Full-stack search app</p></div>
+<p class="card-desc">Helps people find parks and recreational spaces across Brazil, built with attention to security and performance.</p>
+<div class="tags"><span class="tag">Full-stack</span><span class="tag">Search</span><span class="tag">Security</span></div>
+<a class="card-link" href="https://fitness-local-project.onrender.com" target="_blank" rel="noopener">Visit site<span class="sr-only"> — Parks &amp; Squares Finder</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+</article><article class="card">
+<div class="card-top"><span class="status status-live"><span class="dot"></span>Live</span><span class="card-num">04</span></div>
+<div><h3>DIMAK Website</h3><p class="kind">Company website</p></div>
+<p class="card-desc">The studio&#x27;s site, presenting custom software, chatbots and 3D websites; deployed on Render with its own domain.</p>
+<div class="tags"><span class="tag">Web design</span><span class="tag">Render</span><span class="tag">Custom domain</span></div>
+<a class="card-link" href="https://dimaksolucoes.com.br" target="_blank" rel="noopener">Visit site<span class="sr-only"> — DIMAK Website</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+</article><article class="card">
+<div class="card-top"><span class="status status-academic"><span class="dot"></span>Academic</span><span class="card-num">05</span></div>
+<div><h3>Autonomous Vehicle Prototype</h3><p class="kind">University project · NVIDIA Jetson Nano</p></div>
+<p class="card-desc">A miniature self-driving vehicle prototype built on NVIDIA Jetson Nano during the Information Systems degree.</p>
+<div class="tags"><span class="tag">Jetson Nano</span><span class="tag">Embedded systems</span><span class="tag">Prototyping</span></div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+</article><article class="card">
+<div class="card-top"><span class="status status-live"><span class="dot"></span>Live</span><span class="card-num">06</span></div>
+<div><h3>Interactive Invitation</h3><p class="kind">Front-end experiment</p></div>
+<p class="card-desc">A playful web invitation with a built-in prank — small, fun and fully interactive.</p>
+<div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+<a class="card-link" href="https://convite-de-saida-com-pegadinha.onrender.com" target="_blank" rel="noopener">Visit site<span class="sr-only"> — Interactive Invitation</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+</article></div>
+</div>
+</section>
 
-            // 
-            // 1. Efeito de Digitação (Typing Effect)
-            // 
-            const typingEffectElement = document.querySelector('.typing-effect');
-            const words = JSON.parse(typingEffectElement.dataset.words);
-            let wordIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
+<section class="section wrap" id="skills" aria-labelledby="skills-h">
+<div class="section-grid">
+<div class="section-label"><p class="num">04</p><h2 id="skills-h">Skills</h2></div>
+<div class="section-body skill-groups"><div class="skill-group"><h3>Proficient</h3><ul class="skill-list"><li>Java</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul></div><div class="skill-group"><h3>Working knowledge</h3><ul class="skill-list"><li>Python</li><li>Node.js</li><li>C#</li><li>APIs &amp; webhooks</li></ul></div><div class="skill-group"><h3>AI &amp; automation</h3><ul class="skill-list"><li>Prompt engineering</li><li>LLM-assisted development</li><li>Claude</li><li>n8n</li><li>Chatbot design</li></ul></div><div class="skill-group"><h3>Design &amp; product</h3><ul class="skill-list"><li>UX/UI</li><li>Figma</li><li>Web design</li><li>Visual communication</li></ul></div><div class="skill-group"><h3>Tools &amp; platforms</h3><ul class="skill-list"><li>Git &amp; GitHub</li><li>VS Code</li><li>IntelliJ IDEA</li><li>Render</li><li>Wireshark</li></ul></div><div class="skill-group"><h3>Foundations</h3><ul class="skill-list"><li>Networking</li><li>Data science</li><li>IT governance</li><li>Clean code</li></ul></div></div>
+</div>
+</section>
 
-            function type() {
-                const currentWord = words[wordIndex];
-                let displayedText = currentWord.substring(0, charIndex);
-                typingEffectElement.textContent = displayedText;
+<section class="section wrap" id="education" aria-labelledby="education-h">
+<div class="section-grid">
+<div class="section-label"><p class="num">05</p><h2 id="education-h">Education</h2></div>
+<div class="section-body edu">
+<article class="edu-card">
+<div class="row-between" style="align-items:flex-start">
+<div><h3>Bachelor of Information Systems</h3><p class="edu-local" lang="pt-BR">Bacharelado em Sistemas de Informação</p></div>
+<span class="badge">Graduating December 2026</span>
+</div>
+<p class="edu-school"><strong>Centro Universitário de Belo Horizonte (UniBH)</strong> · Belo Horizonte, Brazil</p>
+<p class="edu-meta">2023 – Dec 2026 · 3,140-hour degree</p>
+<div class="edu-block"><span class="eyebrow">Selected coursework</span><ul class="coursework"><li>Software modelling</li><li>Enterprise architecture</li><li>IT governance</li><li>IT projects &amp; processes</li><li>Computer systems &amp; security</li><li>Computing environments &amp; connectivity</li><li>Innovation &amp; competitiveness</li></ul></div>
+<ul class="highlights edu-block"><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E2620F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="m6 6 2.5 2.5"/><path d="m15.5 15.5 2.5 2.5"/><path d="m6 18 2.5-2.5"/><path d="m15.5 8.5 2.5-2.5"/></svg><span>Built a miniature autonomous-vehicle prototype on NVIDIA Jetson Nano.</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E2620F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="m6 6 2.5 2.5"/><path d="m15.5 15.5 2.5 2.5"/><path d="m6 18 2.5-2.5"/><path d="m15.5 8.5 2.5-2.5"/></svg><span>Applied project on optimising companies&#x27; operational performance (2024).</span></li></ul>
+</article>
+<article class="exchange">
+<div><p class="title">Study exchange</p><p class="where">[Institution] · Gold Coast, QLD</p></div>
+<span class="dates">[2027]</span>
+</article>
+</div>
+</div>
+</section>
 
-                if (!isDeleting && charIndex < currentWord.length) {
-                    charIndex++;
-                } else if (isDeleting && charIndex > 0) {
-                    charIndex--;
-                } else if (!isDeleting && charIndex === currentWord.length) {
-                    // Pausa no final da palavra antes de apagar
-                    isDeleting = true;
-                    setTimeout(type, 1500); // Pausa maior
-                    return;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length;
-                    setTimeout(type, 500); // Pausa entre palavras
-                    return;
-                }
+<section class="section wrap" id="certificates" aria-labelledby="certificates-h">
+<div class="section-grid">
+<div class="section-label"><p class="num">06</p><h2 id="certificates-h">Certificates</h2></div>
+<ol class="section-body certs"><li><div class="cert-main"><p class="cert-name">Introduction to Data Science</p><p class="cert-issuer">Cisco Networking Academy · Ânima Educação</p><p class="cert-id">Credential ID 4ae61070-528c-483d-b7bb-43837272f9f7</p></div><span class="dates">Oct 2026</span></li><li><div class="cert-main"><p class="cert-name">Networking Essentials</p><p class="cert-issuer">Cisco Networking Academy · Centro Universitário UNA</p></div><span class="dates">Nov 2023</span></li><li><div class="cert-main"><p class="cert-name">Java Foundations</p><p class="cert-issuer">Oracle Academy</p></div><span class="dates">May 2023</span></li></ol>
+</div>
+</section>
 
-                const typingSpeed = isDeleting ? 70 : 150; // Velocidade de digitação/apagamento
-                setTimeout(type, typingSpeed);
-            }
+<section class="section wrap" id="languages" aria-labelledby="languages-h">
+<div class="section-grid">
+<div class="section-label"><p class="num">07</p><h2 id="languages-h">Languages</h2></div>
+<div class="section-body duo">
+<div class="box box-wide"><div class="lang-row"><strong>Portuguese</strong><span>Native</span></div><div class="lang-row"><strong>English</strong><span>Intermediate · Cultura Inglesa and private tutoring</span></div></div>
+<div class="box box-narrow"><p class="eyebrow" style="margin:0">Referees</p><p class="box-strong">Available on request</p></div>
+</div>
+</div>
+</section>
+</main>
 
-            type(); // Inicia o efeito de digitação
-
-            // 
-            // 2. Scroll Suave para as Seções
-            // 
-            document.querySelectorAll('.main-nav a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault(); // Previne o comportamento padrão do link
-
-                    const targetId = this.getAttribute('href'); // Obtém o ID da seção
-                    const targetSection = document.querySelector(targetId); // Seleciona a seção
-
-                    if (targetSection) {
-                        // Calcula a posição para rolar, descontando a altura da navegação fixa (se houver)
-                        // Ajusta o offset para que a seção não fique colada no topo
-                        const offsetTop = targetSection.offsetTop - (document.querySelector('.main-nav')?.offsetHeight || 0) - 20; // 20px de padding extra
-
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth' // Rola suavemente
-                        });
-                    }
-                });
-            });
-
-            //
-            // 3. Seções Retráteis (Collapsible/Accordion)
-            //
-            document.querySelectorAll('.collapsible-container').forEach(container => {
-                const header = container.querySelector('.collapsible-header');
-                const content = container.querySelector('.collapsible-content');
-
-                header.addEventListener('click', () => {
-                    // Alterna a classe 'active' no header para o ícone
-                    header.classList.toggle('active');
-                    // Alterna a classe 'open' no content para expandir/recolher
-                    content.classList.toggle('open');
-                    
-                    // Ajusta a altura máxima para animar
-                    if (content.classList.contains('open')) {
-                        content.style.maxHeight = content.scrollHeight + "px"; // Define a altura exata do conteúdo
-                    } else {
-                        content.style.maxHeight = "0";
-                    }
-                });
-            });
-
-            
-            // 4. Filtro de Habilidades/Projetos
-            //    (Aplicado à seção de Projetos Notáveis)
-          
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.projects-grid .project-card');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove 'active' de todos os botões e adiciona ao clicado
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-
-                    const filter = button.dataset.filter; // Obtém o valor do data-filter
-
-                    projectCards.forEach(card => {
-                        const categories = card.dataset.categories ? card.dataset.categories.split(' ') : []; // Pega as categorias do projeto
-                        
-                        // Lógica de filtro:
-                        // Se o filtro for 'all' OU se a lista de categorias do card incluir o filtro, o card é exibido.
-                        if (filter === 'all' || categories.includes(filter)) {
-                            card.style.display = 'flex'; // Exibe o card como flex
-                        } else {
-                            card.style.display = 'none'; // Esconde o card
-                        }
-                    });
-                });
-            });
-
-        });
-    </script>
-
+<footer class="footer" id="contact">
+<div class="wrap">
+<p class="eyebrow">Contact</p>
+<h2>Let&#x27;s build something useful.</h2>
+<p class="footer-text">Based on the Gold Coast from [MONTH 2027]. Email is the fastest way to reach me.</p>
+<div class="footer-actions">
+<a class="btn btn-primary" href="mailto:victoremc122@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>victoremc122@gmail.com</span></a>
+<a class="btn btn-ghost" href="https://www.linkedin.com/in/victor-emanuel-5b0732354" target="_blank" rel="noopener">LinkedIn<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a class="btn btn-ghost" href="https://github.com/vitaodamotorizada123" target="_blank" rel="noopener">GitHub<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+<a class="btn btn-ghost" href="Victor-Maksud-Carneiro-Resume.pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span>PDF</span></a>
+</div>
+<div class="footer-bottom"><span>© 2026 Victor Emanuel Maksud Carneiro</span><span>Gold Coast, QLD · Belo Horizonte, MG</span></div>
+</div>
+</footer>
 </body>
 </html>

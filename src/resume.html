@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Victor Emanuel Maksud Carneiro — Résumé</title>
+<!-- Fonte do PDF. Gere o PDF com: python3 src/make_pdf.py -->
+<style>
+@font-face { font-family: "ResumeSans"; src: url("fonts/Inter-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "ResumeSans"; src: url("fonts/Inter-Italic.ttf") format("truetype"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "ResumeSans"; src: url("fonts/Inter-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "ResumeSans"; src: url("fonts/Inter-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "ResumeDisplay"; src: url("fonts/InterDisplay-ExtraBold.ttf") format("truetype"); font-weight: 800; font-style: normal; }
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #FFFFFF; }
+body {
+  font-family: "ResumeSans", Arial, Helvetica, sans-serif;
+  font-size: 14px; line-height: 1.45; color: #14171F;
+  /* plain glyphs only, so ATS text extraction reads every character */
+  font-feature-settings: "calt" 0, "case" 0, "liga" 0;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.page {
+  position: relative; width: 794px; height: 1123px; overflow: hidden;
+  padding: 56px 64px 48px; page-break-after: always; break-after: page;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+a { color: #1A3FB8; text-decoration: none; }
+h1 { margin: 0; font-family: "ResumeDisplay", "ResumeSans", Arial, sans-serif; font-weight: 800; font-size: 28px; line-height: 1.1; letter-spacing: -0.02em; color: #0B1020; }
+.title { margin: 4px 0 0; font-size: 15px; font-weight: 600; color: #1F4FE0; }
+.contact { margin: 10px 0 0; font-size: 13.5px; color: #2A3140; }
+.contact + .contact { margin-top: 2px; }
+.rights { margin: 12px 0 0; padding: 8px 12px; background: #F1F4FA; border-radius: 6px; font-size: 13px; }
+section { margin-top: 16px; }
+.page > section:first-child { margin-top: 0; }
+.tight section { margin-top: 13px; }
+.tight .page > section:first-child, .tight > section:first-child { margin-top: 0; }
+h2 {
+  margin: 0 0 10px; padding-bottom: 5px; border-bottom: 1px solid #C9D0DC;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #1F4FE0;
+}
+h3 { margin: 0; font-size: 15px; font-weight: 700; color: #0B1020; }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.when { font-size: 13px; color: #3D4555; white-space: nowrap; }
+.org { margin: 1px 0 0; font-weight: 600; color: #1F4FE0; }
+.note { margin: 1px 0 0; font-size: 13.5px; font-style: italic; color: #3D4555; }
+ul { margin: 6px 0 0; padding-left: 18px; }
+li + li { margin-top: 4px; }
+.skills li + li { margin-top: 3px; }
+.skills { margin-top: 0; }
+p { margin: 0; }
+.project + .project { margin-top: 8px; }
+.project .meta { color: #3D4555; }
+.project p + p { margin-top: 1px; }
+.foot {
+  position: absolute; left: 64px; right: 64px; bottom: 26px;
+  display: flex; justify-content: space-between; font-size: 12px; color: #5B6474;
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+<header>
+<h1>Victor Emanuel Maksud Carneiro</h1>
+<p class="title">Software Developer · AI &amp; Automation</p>
+<p class="contact">Gold Coast, QLD · [AU mobile] · <a href="mailto:victoremc122@gmail.com">victoremc122@gmail.com</a></p>
+<p class="contact"><a href="https://www.linkedin.com/in/victor-emanuel-5b0732354">linkedin.com/in/victor-emanuel-5b0732354</a> · <a href="https://github.com/vitaodamotorizada123">github.com/vitaodamotorizada123</a></p>
+<p class="contact">Portfolio: <a href="https://curriculo-victor-emanuel-maksud-carneiro.onrender.com">curriculo-victor-emanuel-maksud-carneiro.onrender.com</a></p>
+<p class="rights"><strong>Work rights:</strong> Student visa (subclass 500), valid to [MM/YYYY] — available up to 48 hours per fortnight during study periods and full-time during scheduled university breaks. Available from [MONTH 2027].</p>
+</header>
+
+<section>
+<h2>Career Summary</h2>
+<p>Final-year Bachelor of Information Systems student (UniBH, Brazil; expected completion December 2026) and co-founder of DIMAK Soluções, a custom-software studio. Builds and ships web systems end to end, including a reusable WhatsApp chatbot platform and a barbershop booking system in production. Combines full-stack development with practical AI — prompt engineering, LLM-assisted development (Claude) and n8n automation — and has mentored people on using AI at work. Seeking junior software developer, web developer, IT support or AI/automation roles on the Gold Coast.</p>
+</section>
+
+<section>
+<h2>Key Skills</h2>
+<ul class="skills">
+<li><strong>Programming:</strong> Java, JavaScript, HTML, CSS (proficient); Python, Node.js, C# (working knowledge)</li>
+<li><strong>AI &amp; automation:</strong> prompt engineering, LLM-assisted development (Claude), n8n workflows, WhatsApp chatbot design</li>
+<li><strong>Web &amp; integration:</strong> full-stack web apps, WhatsApp Cloud API, APIs and webhooks, deployment on Render</li>
+<li><strong>Design:</strong> UX/UI, Figma, responsive web design, visual communication</li>
+<li><strong>Tools &amp; foundations:</strong> Git/GitHub, VS Code, IntelliJ IDEA, Wireshark; networking (Cisco), IT governance, data science basics</li>
+</ul>
+</section>
+
+<section>
+<h2>Professional Experience</h2>
+<div class="row"><h3>Co-Founder &amp; Software Developer</h3><span class="when">[Month YYYY] – Present</span></div>
+<p class="org">DIMAK Soluções · Belo Horizonte, Brazil</p>
+<p class="note">Custom-software studio building tailored systems, chatbots and 3D websites for businesses.</p>
+<ul>
+<li>Built DIMAK Bot, a reusable WhatsApp chatbot (WhatsApp Cloud API) that connects to any client system, with menu-driven flows, human handover from the client's own dashboard and a dedicated number per business.</li>
+<li>Designed the admin panel that lists every active chatbot and limits each business owner to their own bot.</li>
+<li>Developed a barbershop booking platform now in production (barber dashboard and customer area); WhatsApp bookings recognise customers by phone number and sync with the dashboard.</li>
+<li>Added email alerts to owners and staff when a customer asks for a person, and opened the WhatsApp inbox to the whole team.</li>
+<li>Deployed and maintain always-on services on Render under the studio's domain (dimaksolucoes.com.br), using Git and GitHub.</li>
+<li>Produce the studio's Instagram content (@dimaksolucoes), presenting custom software, chatbots and 3D websites.</li>
+</ul>
+</section>
+<div class="foot"><span>Victor Emanuel Maksud Carneiro</span><span>Page 1 of 2</span></div>
+</div>
+
+<div class="page tight">
+<section>
+<h2>Professional Experience (continued)</h2>
+<div class="row"><h3>AI Mentor</h3><span class="when">[YYYY] – Present</span></div>
+<p class="org">[Organisation / Independent] · [City / Online]</p>
+<ul>
+<li>Delivered AI mentoring sessions on prompt writing, AI-assisted workflows and automation for [audience — e.g. students, professionals, business owners].</li>
+<li>[Add: number of sessions or mentees, and one concrete outcome.]</li>
+</ul>
+</section>
+
+<section>
+<h2>Selected Projects</h2>
+<div class="project">
+<p><strong>DIMAK Bot — WhatsApp chatbot platform</strong> <span class="meta">· In production · demo on request</span></p>
+<p>Reusable chatbot that plugs into any business system and is customised per client; one demo number offers a menu of segments (barbershop, accounting, sales) and stores every lead for follow-up.</p>
+</div>
+<div class="project">
+<p><strong>Barbershop Booking System — full-stack web app</strong> <span class="meta">· <a href="https://app.dimaksolucoes.com.br">app.dimaksolucoes.com.br</a></span></p>
+<p>Booking platform with a barber dashboard and customer area, connected to DIMAK Bot so customers can book through WhatsApp as well as the web.</p>
+</div>
+<div class="project">
+<p><strong>Parks &amp; Squares Finder — full-stack search app</strong> <span class="meta">· <a href="https://fitness-local-project.onrender.com">fitness-local-project.onrender.com</a></span></p>
+<p>Helps people find parks and recreational spaces across Brazil, built with attention to security and performance.</p>
+</div>
+<div class="project">
+<p><strong>Autonomous Vehicle Prototype — university project</strong> <span class="meta">· NVIDIA Jetson Nano</span></p>
+<p>Built a miniature self-driving vehicle prototype on NVIDIA Jetson Nano as part of the Information Systems degree.</p>
+</div>
+</section>
+
+<section>
+<h2>Education</h2>
+<div class="row"><h3>Bachelor of Information Systems</h3><span class="when">2023 – Dec 2026</span></div>
+<p class="note">Bacharelado em Sistemas de Informação</p>
+<p style="margin-top:1px"><span style="font-weight:600;color:#1F4FE0">Centro Universitário de Belo Horizonte (UniBH)</span>, Belo Horizonte, Brazil · <strong>Expected completion: December 2026</strong></p>
+<p style="margin-top:4px">3,140-hour degree. Coursework: software modelling, enterprise architecture, IT governance, IT projects and processes, computer systems and security, computing environments and connectivity.</p>
+<div class="row" style="margin-top:10px"><h3>Study exchange — [Institution], Gold Coast, QLD</h3><span class="when">[2027]</span></div>
+</section>
+
+<section>
+<h2>Certificates</h2>
+<ul class="skills">
+<li><strong>Introduction to Data Science</strong> — Cisco Networking Academy (Ânima Educação), course certificate · Oct 2026</li>
+<li><strong>Networking Essentials</strong> — Cisco Networking Academy (Centro Universitário UNA), course certificate · Nov 2023</li>
+<li><strong>Java Foundations</strong> — Oracle Academy, course certificate · May 2023</li>
+</ul>
+</section>
+
+<section>
+<h2>Languages</h2>
+<p>Portuguese — native · English — intermediate (Cultura Inglesa and private tutoring) · [IELTS score, if taken]</p>
+</section>
+
+<section>
+<h2>Referees</h2>
+<p>Available on request.</p>
+</section>
+<div class="foot"><span>Victor Emanuel Maksud Carneiro</span><span>Page 2 of 2</span></div>
+</div>
+
+</body>
+</html>
